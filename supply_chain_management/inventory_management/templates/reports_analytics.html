@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports and Analytics</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'dashboard' %}" {% if request.path == '/dashboard/' %}class="active"{% endif %}>Dashboard</a></li>
+            <li><a href="{% url 'order_tracking' %}" {% if request.path == '/order_tracking/' %}class="active"{% endif %}>Order Tracking</a></li>
+            <li><a href="{% url 'inventory_management' %}" {% if request.path == '/inventory_management/' %}class="active"{% endif %}>Inventory Management</a></li>
+            <li><a href="{% url 'reports_analytics' %}" {% if request.path == '/reports_analytics/' %}class="active"{% endif %}>Reports & Analytics</a></li>
+        </ul>
+    </nav>
+    
+    <div class="reports-analytics">
+        <h1>Reports and Analytics</h1>
+        <div class="chart-container">
+            <canvas id="inventoryChart"></canvas>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <script src="{% static 'js/reports_analytics.js' %}"></script>
+</body>
+</html>

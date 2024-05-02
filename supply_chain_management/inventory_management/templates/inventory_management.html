@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Management</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'dashboard' %}" {% if request.path == '/dashboard/' %}class="active"{% endif %}>Dashboard</a></li>
+            <li><a href="{% url 'order_tracking' %}" {% if request.path == '/order_tracking/' %}class="active"{% endif %}>Order Tracking</a></li>
+            <li><a href="{% url 'inventory_management' %}" {% if request.path == '/inventory_management/' %}class="active"{% endif %}>Inventory Management</a></li>
+            <li><a href="{% url 'reports_analytics' %}" {% if request.path == '/reports_analytics/' %}class="active"{% endif %}>Reports & Analytics</a></li>
+        </ul>
+    </nav>
+    
+    <div class="inventory-management">
+        <h1>Inventory Management</h1>
+        <div class="inventory-list">
+            <div class="item">
+                <h2>Crude Oil</h2>
+                <p>Quantity: 500 barrels</p>
+                <p>Available Quantity: 200</p>
+                <p>Last Stock Update: 2024-04-25</p>
+            </div>
+            <div class="item">
+                <h2>Gasoline</h2>
+                <p>Quantity: 1000 gallons</p>
+                <p>Available Quantity: 350</p>
+                <p>Last Stock Update: 2024-04-26</p>
+            </div>
+            <div class="item">
+                <h2>Diesel</h2>
+                <p>Quantity: 800 gallons</p>
+                <p>Available Quantity: 600</p>
+                <p>Last Stock Update: 2024-04-24</p>
+            </div>
+            <div class="item">
+                <h2>Jet Fuel</h2>
+                <p>Quantity: 600 gallons</p>
+                <p>Available Quantity: 450</p>
+                <p>Last Stock Update: 2024-04-27</p>
+            </div>
+            <!-- Add more items dynamically -->
+        </div>
+    </div>
+    <script src="{% static 'js/inventory_management.js' %}"></script>
+</body>
+</html>

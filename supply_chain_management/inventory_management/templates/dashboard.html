@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supply Chain Management Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'dashboard' %}" {% if request.path == '/dashboard/' %}class="active"{% endif %}>Dashboard</a></li>
+            <li><a href="{% url 'order_tracking' %}" {% if request.path == '/order_tracking/' %}class="active"{% endif %}>Order Tracking</a></li>
+            <li><a href="{% url 'inventory_management' %}" {% if request.path == '/inventory_management/' %}class="active"{% endif %}>Inventory Management</a></li>
+            <li><a href="{% url 'reports_analytics' %}" {% if request.path == '/reports_analytics/' %}class="active"{% endif %}>Reports & Analytics</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard">
+        <h1>Supply Chain Management Dashboard</h1>
+        <div class="metrics">
+            <div class="metric">
+                <h2>Total Products</h2>
+                <p>150</p>
+            </div>
+            <div class="metric">
+                <h2>Pending Orders</h2>
+                <p>10</p>
+            </div>
+            <div class="metric">
+                <h2>Low Stock Alerts</h2>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

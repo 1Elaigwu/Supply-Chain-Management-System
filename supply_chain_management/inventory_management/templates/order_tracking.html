@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="{% url 'dashboard' %}" {% if request.path == '/dashboard/' %}class="active"{% endif %}>Dashboard</a></li>
+            <li><a href="{% url 'order_tracking' %}" {% if request.path == '/order_tracking/' %}class="active"{% endif %}>Order Tracking</a></li>
+            <li><a href="{% url 'inventory_management' %}" {% if request.path == '/inventory_management/' %}class="active"{% endif %}>Inventory Management</a></li>
+            <li><a href="{% url 'reports_analytics' %}" {% if request.path == '/reports_analytics/' %}class="active"{% endif %}>Reports & Analytics</a></li>
+        </ul>
+    </nav>
+    
+    <div class="order-tracking">
+        <h1>Order Tracking</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Product Name</th>
+                    <th>Order Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="order-body">
+                <!-- Existing rows -->
+                <tr>
+                    <td>001</td>
+                    <td>Crude Oil</td>
+                    <td>2024-04-25</td>
+                    <td>Pending</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Gasoline</td>
+                    <td>2024-04-26</td>
+                    <td>Delivered</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>Diesel</td>
+                    <td>2024-04-26</td>
+                    <td>Delivered</td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>Jet Fuel</td>
+                    <td>2024-04-26</td>
+                    <td>Pending</td>
+                </tr>
+                <!-- Add more rows dynamically using JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static 'js/order_tracking.js' %}"></script>
+</body>
+</html>
